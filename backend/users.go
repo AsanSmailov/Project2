@@ -58,14 +58,14 @@ func (db *Database) Authorisation(w http.ResponseWriter, r *http.Request) {
 	password := r.FormValue("password")
 
 	var result string
-	query := fmt.Sprintf("SELECT name FROM users WHERE login='%s' AND password='%s'", login, password)
+	query := fmt.Sprintf("SELECT id FROM users WHERE login='%s' AND password='%s'", login, password)
 	err := db.db.QueryRow(query).Scan(&result)
 	if err != nil {
 		fmt.Fprintf(w, "%s", "Invalid login or password")
 		return
 
 	} else {
-		fmt.Fprintf(w, "%s", "Valid login and password")
+		fmt.Fprintf(w, "%s", result)
 	}
 
 }
