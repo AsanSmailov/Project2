@@ -83,10 +83,10 @@ func (db *Database) Sale(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(result)
 	res, _ := strconv.ParseFloat(result, 10)
 	var sale string
-	if res <= 100000 {
-		sale = fmt.Sprintf("%.2f", res*0.000001)
+	if res <= 15000 {
+		sale = fmt.Sprintf("%.2f", res*0.00001)
 	} else {
-		sale = "0.1"
+		sale = "0.15"
 	}
 	fmt.Fprintf(w, "%s", sale)
 }
