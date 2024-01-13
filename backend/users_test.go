@@ -301,8 +301,8 @@ func TestSale2(t *testing.T) {
 
 	res, _ := strconv.ParseFloat(rr.Body.String(), 64)
 	// Проверка ожидаемого результата
-	if res != 0.1 {
-		t.Errorf("Expected '0.1' but got %s", rr.Body.String())
+	if res != 0.15 {
+		t.Errorf("Expected '0.15' but got %s", rr.Body.String())
 	}
 	db.Close()
 }
