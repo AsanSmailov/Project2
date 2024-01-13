@@ -125,8 +125,8 @@ func TestAuthorisation(t *testing.T) {
 
 	// Создание тестового HTTP запрос
 	body := url.Values{}
-	body.Add("login", "johndoe")
-	body.Add("password", "password123")
+	body.Add("login", "testlogin")
+	body.Add("password", "testpassword")
 	req, err := http.NewRequest("POST", "/authorisation", strings.NewReader(body.Encode()))
 	if err != nil {
 		t.Fatal(err)
@@ -140,8 +140,8 @@ func TestAuthorisation(t *testing.T) {
 	db.Authorisation(rr, req)
 
 	// Проверка ожидаемого результата
-	if rr.Body.String() != "Valid login and password" {
-		t.Errorf("Expected 'Valid login and password' but got %s", rr.Body.String())
+	if rr.Body.String() != "1" {
+		t.Errorf("Expected '1' but got %s", rr.Body.String())
 	}
 	db.Close()
 }
