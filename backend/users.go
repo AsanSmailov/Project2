@@ -191,7 +191,7 @@ func SetupServer(db *Database) *http.Server {
 	mux.HandleFunc("/check_status", db.CheckStatus)
 
 	return &http.Server{
-		Addr:    ":8080",
+		Addr:    ":8081",
 		Handler: mux,
 	}
 }
