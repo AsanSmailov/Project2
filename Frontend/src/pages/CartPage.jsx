@@ -80,6 +80,9 @@ const CartPage = () => {
                 const response = await ItemsService.deleteCartItem(userID, item.vcode);
                 setItems((prevItems) =>
                     prevItems.filter((item1) => item1.vcode !== item.vcode))
+                setSelectedItemsData((prevSelectedItemsData) =>
+                    prevSelectedItemsData.filter((itemData) => itemData.vcode !== item.vcode)
+                );
             } catch (error) {
                 setMessage(error)
                 setModalMessageActive(true)
